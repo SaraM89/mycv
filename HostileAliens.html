@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hostile Aliens</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #reset {
+        display: none;
+      }
+
+      body {
+        background: linear-gradient(
+            rgba(190, 82, 204, 0.554),
+            rgba(206, 52, 85, 0.685)
+          )
+          no-repeat;
+        background-size: 100%;
+        position: relative;
+        /* width: 95vw; */
+        height: 95vh;
+      }
+
+      #aliens ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        top: 80px;
+      }
+
+      #play {
+        background: url(../assets/hostileAliens/hero.png);
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 300px;
+        margin: 0 45%;
+        width: 100px;
+        height: 100px;
+      }
+
+      .alien {
+        width: 70px;
+        height: 70px;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      h1 {
+        font-family: "Press Start 2P", cursive;
+        font-size: 25px;
+        text-align: center;
+        margin: 20px 0;
+        color: rgba(83, 52, 134, 0.938);
+      }
+      @media only screen and (max-width: 600px) {
+        body {
+          margin-bottom: 30px;
+        }
+        h1 {
+          margin: 30px 0 20px;
+        }
+        .alien {
+          width: 38px;
+          height: 38px;
+        }
+        #aliens ul {
+          display: flex;
+          position: relative;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          padding: 0;
+          margin: 0;
+        }
+        #reset {
+          position: absolute;
+          bottom: 100px;
+        }
+
+        #play {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header><h1>Hostile Aliens</h1></header>
+    <main>
+      <div id="aliens"></div>
+      <button id="play" onclick="play()"></button>
+      <button id="reset" onclick="reset()">Start Again</button>
+    </main>
+    <script>
+      let count = 0;
+      let aliens = [];
+      let x = 0;
+      class Alien {
+        constructor(status, points, pointLoose) {
+          this._status = status;
+          this._points = points;
+          this._pointLoose = pointLoose;
+        }
+        get status() {
+          return this._status;
+        }
+        get points() {
+          return this._points;
+        }
+        get pointLoose() {
+          return this._pointLoose;
+        }
+        set status(newStatus) {
+          this._status = newStatus;
+        }
+        set newPoints(newValue) {
+          this._points = newValue;
+        }
+      }
+
+      function createEnemies() {
+        aliens[0] = new Alien("ALIVE", 100, 9);
+        for (let i = 1; i <= 5; i++) {
+          aliens[i] = new Alien("ALIVE", 80, 10);
+        }
+        for (let i = 6; i <= 13; i++) {
+          aliens[i] = new Alien("ALIVE", 45, 12);
+        }
+        return aliens;
+      }
+      createEnemies();
+      function play() {
+        let random = Math.floor(Math.random() * 14);
+        while (aliens[random].status == "DEAD") {
+          random = Math.floor(Math.random() * 14);
+        }
+        if (aliens[random].status == "ALIVE" && aliens[random].points > 0) {
+          console.log(aliens[random], random);
+          if (random == 0) {
+            aliens[0].newPoints = aliens[0].points - aliens[0].pointLoose;
+          } else if (random > 0 && random <= 5) {
+            aliens[random].newPoints =
+              aliens[random].points - aliens[random].pointLoose;
+          } else if (random > 5 && random <= 13) {
+            aliens[random].newPoints =
+              aliens[random].points - aliens[random].pointLoose;
+          }
+        }
+        document.getElementById("aliens").innerHTML = `<ul>     
+                <li> <img class="alien" src="../assets/hostileAliens/alienQueen.png" id="alien0"> ${aliens[0].points}</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien1"> ${aliens[1].points} </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien2"> ${aliens[2].points} </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien3"> ${aliens[3].points} </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien4"> ${aliens[4].points}  </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien5"> ${aliens[5].points} </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien6"> ${aliens[6].points} </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien7"> ${aliens[7].points}  </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien8"> ${aliens[8].points}  </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien9"> ${aliens[9].points} </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien10"> ${aliens[10].points}</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien11"> ${aliens[11].points}</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien12"> ${aliens[12].points}</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien13"> ${aliens[13].points}</li></ul>`;
+        aliens[0].status = aliens[0].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[1].status = aliens[1].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[2].status = aliens[2].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[3].status = aliens[3].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[4].status = aliens[4].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[5].status = aliens[5].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[6].status = aliens[6].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[7].status = aliens[7].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[8].status = aliens[8].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[9].status = aliens[9].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[10].status = aliens[10].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[11].status = aliens[11].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[12].status = aliens[12].points <= 0 ? "DEAD" : "ALIVE";
+        aliens[13].status = aliens[13].points <= 0 ? "DEAD" : "ALIVE";
+
+        for (let i = 0; i < aliens.length; i++) {
+          if (aliens[i].points <= 0) {
+            // console.log("Hello");
+            // $("ul li:nth-child(1)").append(`<li><img src="alienDEAD.png" id="alien"></li>`);
+            const selectorString = "#alien" + i;
+            $(selectorString).replaceWith(
+              `<li><img class="alien" src="../assets/hostileAliens/alienDEAD.png" id="alien"></li>`
+            );
+          }
+        }
+        checkWin();
+      }
+
+      for (let i = 0; i < aliens.length; i++) {
+        // let imgD = " ";
+        if (aliens[i].status == "DEAD") {
+          x++;
+        }
+        console.log(x);
+      }
+
+      function checkWin() {
+        if (aliens[0].points <= 0 || x == 14) {
+          document.getElementById("play").style.display = "none";
+          alert("You have WON!!!");
+          document.getElementById("reset").style.display = "unset";
+        }
+      }
+      checkWin();
+
+      function reset() {
+        createEnemies();
+        document.getElementById("play").style.display = "unset";
+        document.getElementById("reset").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

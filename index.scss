@@ -1,0 +1,271 @@
+body::-webkit-scrollbar {
+  width: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  body {
+    header {
+      text-align: center;
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      h1 {
+        width: 100%;
+        font-family: "Amatic SC", cursive;
+        font-size: 6vw;
+        top: 35%;
+        position: absolute;
+        p {
+          font-family: "Courier New", Courier, monospace;
+          font-weight: normal;
+          font-size: 1.5rem;
+        }
+        #containerArrow {
+          display: flex;
+          flex-direction: column;
+          font-size: 1.2rem;
+          margin-top: 5%;
+
+          .arrowDown {
+            a {
+              text-decoration: none;
+              color: black;
+            }
+            i {
+              margin-top: 0.5%;
+            }
+          }
+          .bounce {
+            -moz-animation: bounce 2s infinite;
+            -webkit-animation: bounce 2s infinite;
+            animation: bounce 2s infinite;
+          }
+
+          @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+              transform: translateY(0);
+            }
+            40% {
+              transform: translateY(-7px);
+            }
+            60% {
+              transform: translateY(-5px);
+            }
+          }
+        }
+      }
+      @keyframes move_wave {
+        0% {
+          transform: translateX(0) translateZ(0) scaleY(1);
+        }
+        50% {
+          transform: translateX(-25%) translateZ(0) scaleY(0.55);
+        }
+        100% {
+          transform: translateX(-50%) translateZ(0) scaleY(1);
+        }
+      }
+      .waveWrapper {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: -1;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+      }
+      .waveWrapperInner {
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        height: 100%;
+        background-image: linear-gradient(to top, #3a69c067 20%, #27273c 80%);
+      }
+      .bgTop {
+        z-index: 15;
+        opacity: 0.5;
+      }
+      .bgMiddle {
+        z-index: 10;
+        opacity: 0.75;
+      }
+      .bgBottom {
+        z-index: 5;
+      }
+      .wave {
+        position: absolute;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        background-repeat: repeat no-repeat;
+        background-position: 0 bottom;
+        transform-origin: center bottom;
+      }
+      .waveTop {
+        background-size: 50% 100px;
+      }
+      .waveAnimation .waveTop {
+        animation: move-wave 3s;
+        -webkit-animation: move-wave 3s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+      }
+      .waveMiddle {
+        background-size: 50% 120px;
+      }
+      .waveAnimation .waveMiddle {
+        animation: move_wave 10s linear infinite;
+      }
+      .waveBottom {
+        background-size: 50% 100px;
+      }
+      .waveAnimation .waveBottom {
+        animation: move_wave 15s linear infinite;
+      }
+    }
+
+    main {
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+      #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        left: 10px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: transparent;
+        //color: #28285c;
+        color: black;
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 8px 10px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+        &:hover {
+          background-color: #28285c; /* Set a background color */
+          color: white; /* Text color */
+        }
+      }
+      #portfolio {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        //margin-bottom: 5%;
+        h2 {
+          font-family: "Amatic SC", cursive;
+          font-size: 4vw;
+          padding: 2% 0;
+        }
+        #projectsContainer {
+          width: 96%;
+          height: 98%;
+          display: flex;
+          flex-direction: column;
+          .wrapper {
+            display: flex;
+            flex-direction: row;
+            //margin: 0 2%;
+            height: 300px;
+            border-top: #28285c 1px dashed;
+            .imgContainer {
+              padding: 3%;
+              width: 40%;
+              img {
+                //box-shadow: 20px 20px 50px #3a69c0e0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+              }
+            }
+            .insContainer {
+              width: 60%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-evenly;
+              .description {
+                //padding: 2%;
+              }
+              .innerText {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+              }
+              .links {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                height: 10%;
+                justify-content: space-evenly;
+                .link {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  background-color: #21214be8;
+                  width: 120px;
+                  height: 100%;
+                  font-size: 0.8em;
+                  border-radius: 10px;
+                  a {
+                    color: white;
+                    text-decoration: none;
+                  }
+                  i {
+                    margin-left: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    footer {
+      width: 100%;
+      height: auto;
+      background-color: #21214be8;
+      color: white;
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.8em;
+      padding: 10px;
+      a {
+        color: white;
+      }
+      #socials {
+        align-items: center;
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 15px;
+        li {
+          text-decoration: none;
+          list-style: none;
+          a {
+            font-size: 130%;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

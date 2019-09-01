@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "sass": "^1.22.10"
+  },
+  "scripts": {
+    "build-css": "sass index.scss index.css",
+    "build-watch": "sass index.scss index.css --watch",
+    "sass-watch": "sass --watch .:."
+  }
+}
