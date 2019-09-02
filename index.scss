@@ -5,6 +5,7 @@ body::-webkit-scrollbar {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
   body {
     header {
       text-align: center;
@@ -223,6 +224,9 @@ body::-webkit-scrollbar {
                   height: 100%;
                   font-size: 0.8em;
                   border-radius: 10px;
+                  &:hover {
+                    background-color: rgb(42, 86, 206);
+                  }
                   a {
                     color: white;
                     text-decoration: none;
@@ -260,9 +264,13 @@ body::-webkit-scrollbar {
         li {
           text-decoration: none;
           list-style: none;
+
           a {
             font-size: 130%;
             color: white;
+            &:hover {
+              color: rgb(42, 86, 206);
+            }
           }
         }
       }

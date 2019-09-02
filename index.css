@@ -6,6 +6,7 @@ body::-webkit-scrollbar {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 * body header {
   text-align: center;
@@ -228,6 +229,9 @@ body::-webkit-scrollbar {
   font-size: 0.8em;
   border-radius: 10px;
 }
+* body main #portfolio #projectsContainer .wrapper .insContainer .links .link:hover {
+  background-color: #2a56ce;
+}
 * body main #portfolio #projectsContainer .wrapper .insContainer .links .link a {
   color: white;
   text-decoration: none;
@@ -264,6 +268,9 @@ body::-webkit-scrollbar {
 * body footer #socials li a {
   font-size: 130%;
   color: white;
+}
+* body footer #socials li a:hover {
+  color: #2a56ce;
 }
 
 /*# sourceMappingURL=index.css.map */
