@@ -171,20 +171,48 @@
           }
         }
         document.getElementById("aliens").innerHTML = `<ul>     
-                <li> <img class="alien" src="../assets/hostileAliens/alienQueen.png" id="alien0"> ${aliens[0].points}</li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien1"> ${aliens[1].points} </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien2"> ${aliens[2].points} </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien3"> ${aliens[3].points} </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien4"> ${aliens[4].points}  </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien5"> ${aliens[5].points} </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien6"> ${aliens[6].points} </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien7"> ${aliens[7].points}  </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien8"> ${aliens[8].points}  </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien9"> ${aliens[9].points} </li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien10"> ${aliens[10].points}</li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien11"> ${aliens[11].points}</li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien12"> ${aliens[12].points}</li>
-                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien13"> ${aliens[13].points}</li></ul>`;
+                <li> <img class="alien" src="../assets/hostileAliens/alienQueen.png" id="alien0"> ${
+                  aliens[0].points > 1 ? aliens[0].points : 0
+                }</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien1"> ${
+                  aliens[1].points > 1 ? aliens[1].points : 0
+                } </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien2"> ${
+                  aliens[2].points > 1 ? aliens[2].points : 0
+                } </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien3"> ${
+                  aliens[3].points > 1 ? aliens[3].points : 0
+                } </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien4"> ${
+                  aliens[4].points > 1 ? aliens[4].points : 0
+                }  </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienD.png"id="alien5"> ${
+                  aliens[5].points > 1 ? aliens[5].points : 0
+                } </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien6"> ${
+                  aliens[6].points > 1 ? aliens[6].points : 0
+                } </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien7"> ${
+                  aliens[7].points > 1 ? aliens[7].points : 0
+                }  </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien8"> ${
+                  aliens[8].points > 1 ? aliens[8].points : 0
+                }  </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien9"> ${
+                  aliens[9].points > 1 ? aliens[9].points : 0
+                } </li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien10"> ${
+                  aliens[10].points > 1 ? aliens[10].points : 0
+                }</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien11"> ${
+                  aliens[11].points > 1 ? aliens[11].points : 0
+                }</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien12"> ${
+                  aliens[12].points > 1 ? aliens[12].points : 0
+                }</li>
+                <li> <img class="alien" src="../assets/hostileAliens/alienA-.png"id="alien13"> ${
+                  aliens[13].points > 1 ? aliens[13].points : 0
+                }</li></ul>`;
         aliens[0].status = aliens[0].points <= 0 ? "DEAD" : "ALIVE";
         aliens[1].status = aliens[1].points <= 0 ? "DEAD" : "ALIVE";
         aliens[2].status = aliens[2].points <= 0 ? "DEAD" : "ALIVE";
