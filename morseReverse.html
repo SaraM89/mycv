@@ -42,7 +42,6 @@
         placeholder="write here.."
       /><br /><br />
       <button onclick="reveal()">Translate</button>
-      <!-- <button onclick="reverse()">Reverse</button> -->
       <div id="translated"></div>
     </main>
     <script>
@@ -50,7 +49,6 @@
         var message = document.getElementById("inputText").value;
         var messageConverted = [];
         if (document.getElementById("inputText").value.includes("-" || ".")) {
-          // console.log("blue");
           var alphabet = {
             "-----": "0",
             ".----": "1",
@@ -101,10 +99,6 @@
             messageConverted.push(" ");
           });
           document.getElementById("translated").innerHTML = messageConverted;
-          //};
-
-          // reverse = event => {
-          //   console.log("red");
         } else {
           var alphabet = {
             b: "-...",
